@@ -1,0 +1,137 @@
+{% extends 'main.html' %}
+{% block content %}
+<style>
+     .content-table thead tr{
+        background-color: #131313d6;
+        color: white;
+        text-align: left;
+        font-weight: bold;
+    }
+</style>
+<section class="content">
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+              
+    <div class="card">
+    <div class="card-header">
+    <h3 class="card-title">create-group</h3>
+    </div>
+
+    </div>
+    <form method="POST" action="{% url 'create-group' %}">
+      {% csrf_token %}
+    <table class="table table-bordered table-striped content-table" >
+      <thead>
+        <div class="form-group col-md-6">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" placeholder="group name" name="name">
+      </div>
+          <tr>
+              <th>modal</th>
+              <th>add</th>
+              <th>view</th>
+              <th>update</th>
+              <th>delete</th>
+                
+          </tr> 
+          
+            <div class="form-row">
+              <div class="form-group col-md-12">
+          <tbody>
+        
+            <tr>
+                <td>
+                 Doctor
+                </td>
+                <td>  <input type="checkbox" id="permission" name="permission" value="25">
+                  <label for="permission"></label><br></td>
+                  
+               <td>  
+                <input type="checkbox" id="permission" name="permission" value="26">
+                 <label for="permission"></label><br>
+                </td>
+                <td>
+                    <input type="checkbox" id="permission" name="permission" value="27">
+                    <label for="permission"></label><br>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="permission" name="permission" value="28">
+                    <label for="permission"></label><br>
+                </td>
+            </tr>
+            <tr>
+              <td>
+               Patient
+                
+              </td>
+              <td>  <input type="checkbox" id="permission" name="permission" value="29">
+                <label for="permission"></label><br></td>
+                
+             <td>  
+              <input type="checkbox" id="permission" name="permission" value="30">
+               <label for="permission"></label><br>
+              </td>
+              <td>
+                  <input type="checkbox" id="permission" name="permission" value="31">
+                  <label for="permission"></label><br>
+                </td>
+                <td>
+                  <input type="checkbox" id="permission" name="permission" value="32">
+                  <label for="permission"></label><br>
+                </td>
+          </tr>
+          <tr>
+            <td>
+             Appointment
+              
+            </td>
+            <td>  <input type="checkbox" id="permission" name="permission" value="33">
+              <label for="permission"></label><br></td>
+              
+           <td>  
+            <input type="checkbox" id="permission" name="permission" value="34">
+             <label for="permission"></label><br>
+            </td>
+            <td>
+                <input type="checkbox" id="permission" name="permission" value="35">
+                <label for="permission"></label><br>
+              </td>
+              <td>
+                <input type="checkbox" id="permission" name="permission" value="36">
+             </td>   <label for="permission"></label><br>
+          </tr>
+          <div>
+            <td>
+            <button  type="submit" class="btn btn-primary btn-sm fa fa-angle-left"></i>Submit</button>
+          </td>
+          <div>
+       </div>
+              
+        </tr>
+      
+      
+            
+        </tbody>
+        
+      </form>
+      
+        
+    
+
+
+</thead>
+</table>
+  </div>
+  </div>
+  </div> 
+    
+</div>
+</div>
+</div>
+</section>
+
+  
+    
+    {% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<div class="container">
+
+    <div class="row">
+        <!-- Widget Item -->
+        <div class="col-md-12">
+            <div class="widget-area-2 proclinic-box-shadow">
+                <h3 class="widget-title">update appointments</h3>
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>doctor name</label>
+        <select name="doctor" class="form-control">
+            {% if not appointment.doctor  %}
+            <option value="" disabled></option>
+            {% else %}
+            <option value="" disabled></option>
+            {% endif %}
+            {% for doctor in doctors %}
+            {% if appointment.doctor == doctor.id %}
+            <option value="{{doctor.id}}" selected >{{doctor.name}}</option>
+            {% else %}
+            <option value="{{doctor.id}}">{{doctor.name}}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+        <label>patient name</label>
+        <select name="patient" class="form-control">
+            {% if not appointment.patient  %}
+            <option value="" disabled></option>
+            {% else %}
+            <option value="" disabled></option>
+            {% endif %}
+            {% for patient in patients %}
+            {% if appointment.patient == patient.id %}
+            <option value="{{patient.id}}" selected >{{patient.name}}</option>
+            {% else %}
+            <option value="{{patient.id}}">{{patient.name}}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+      
+        
+        <div class="form-group col-md-6">
+            <label for="appointment-date">Appointment Date</label>
+            <input type="text" value="{{appointment.date}}" placeholder="Appointment Date" class="form-control" name="date">
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="appointment-date">Appointment time</label>
+            <input type="text" value="{{appointment.time}}" placeholder="Appointment time" class="form-control" name="time">
+        </div>
+        <div class="form-group col-md-6 mb-3">
+            <button type="submit" class="btn btn-primary btn-lg" onclick="return confirm('saved succesfully')">Submit</button>
+        </div>
+       
+    </div>
+</form>
+       
+
+
+</div>
+
+{% endblock %}

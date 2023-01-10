@@ -1,0 +1,65 @@
+{% extends 'main.html' %}
+{% block content %}
+<style>
+     .content-table thead tr{
+        background-color: #131313d6;
+        color: white;
+        text-align: left;
+        font-weight: bold;
+    }
+</style>
+<section class="content">
+    <div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="block">
+            <form action="{% url 'add-group' %}" method="POST" enctype="multipart/form-data" class="form-horizental form-bordered">
+                {% csrf_token %}         
+            
+              
+    <div class="card">
+    <div class="card-header">
+    <h3 class="card-title">View group</h3>
+    </div>
+    <!-- /.card-header -->
+            <div class="card-body">
+            <table id="example1" class="table table-bordered table-striped content-table" >
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>actions</th>
+                </tr>                         
+
+    </thead>
+                
+                <tbody>
+                    {% for group in groups %}
+                    <tr>
+                        <td>{{group.name}}</td>
+                        <td class="text-center">
+                            <div class="btn-group">
+                              <a href="#" data-toggle="tooltip" title="edit" class="btn btn-xs btn-default"><i class="fa fa-pencil" aria-hidden="true">user-to-group</i></a>
+                              <a href="{% url 'delete-group' group.id %}" onclick="return  confirm('are you sure you wanna delete?')"  data-toggle="tooltip" title="delete" class="btn btn-xs btn-danger"><i class="fa fa-times">delete</i></a>
+                            </div>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            
+            
+    </table>
+
+
+</div>
+
+
+</div>
+</div>
+
+
+
+</div>
+</div>
+</div>
+</section>
+{% endblock %}

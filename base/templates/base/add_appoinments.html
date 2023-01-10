@@ -1,0 +1,48 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<div class="container">
+
+    <div class="row">
+        <!-- Widget Item -->
+        <div class="col-md-12">
+            <div class="widget-area-2 proclinic-box-shadow">
+                <h3 class="widget-title">Add appointments</h3>
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>doctor name</label>
+        <select name="doctor" class="form-control">
+            {% for i in doctor %}
+            <option value="{{i.name}}">{{i.name}}</option>
+            {% endfor %}
+        </select>
+        <label>patient name</label>
+        <select name="patient" class="form-control">
+            {% for i in patient %}
+            <option value="{{i.name}}">{{i.name}}</option>
+            {% endfor %}
+        </select>
+        <div class="form-group col-md-6">
+            <label for="appointment-date">Appointment Date</label>
+            <input type="date" value="{{appoinments.date}}" placeholder="Appointment Date" class="form-control" name="date">
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="appointment-date">Appointment time</label>
+            <input type="time" value="{{appoinments.time}}" placeholder="Appointment time" class="form-control" name="time">
+        </div>
+        <div class="form-group col-md-6 mb-3">
+            <button type="submit" class="btn btn-primary btn-lg" onclick="return confirm('saved succesfully')">Submit</button>
+        </div>
+       
+    </div>
+</form>
+       
+
+
+</div>
+
+{% endblock %}

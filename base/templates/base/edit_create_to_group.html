@@ -1,0 +1,133 @@
+{% extends 'main.html' %}
+{% block content %}
+<style>
+     .content-table thead tr{
+        background-color: #131313d6;
+        color: white;
+        text-align: left;
+        font-weight: bold;
+    }
+</style>
+<section class="content">
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+              
+    <div class="card">
+    <div class="card-header">
+    <h3 class="card-title">create-group</h3>
+    </div>
+
+    </div>
+    <form method="POST" action="{% url 'create-group' %}">
+      {% csrf_token %}
+    <table class="table table-bordered table-striped content-table" >
+      <thead>
+          <tr>
+              <th>modal</th>
+              <th>add</th>
+              <th>view</th>
+              <th>update</th>
+              <th>delete</th>
+                
+          </tr> 
+          
+            <div class="form-row">
+              <div class="form-group col-md-12">
+          <tbody>
+        
+            <tr>
+                <td>
+                 Doctor
+                </td>
+                <td>  <input type="checkbox" id="vehicle1" name="vehicle1" value="25">
+                  <label for="vehicle1"></label><br></td>
+                  
+               <td>  
+                <input type="checkbox" id="vehicle1" name="vehicle1" value="26">
+                 <label for="vehicle1"></label><br>
+                </td>
+                <td>
+                    <input type="checkbox" id="vehicle1" name="vehicle1" value="27">
+                    <label for="vehicle1"></label><br>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="vehicle1" name="vehicle1" value="28">
+                    <label for="vehicle1"></label><br>
+                </td>
+            </tr>
+            <tr>
+              <td>
+               Patient
+                
+              </td>
+              <td>  <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                <label for="vehicle1"></label><br></td>
+                
+             <td>  
+              <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+               <label for="vehicle1"></label><br>
+              </td>
+              <td>
+                  <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                  <label for="vehicle1"></label><br>
+                </td>
+                <td>
+                  <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                  <label for="vehicle1"></label><br>
+                </td>
+          </tr>
+          <tr>
+            <td>
+             Appointment
+              
+            </td>
+            <td>  <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+              <label for="vehicle1"></label><br></td>
+              
+           <td>  
+            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+             <label for="vehicle1"></label><br>
+            </td>
+            <td>
+                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                <label for="vehicle1"></label><br>
+              </td>
+              <td>
+                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+             </td>   <label for="vehicle1"></label><br>
+          </tr>
+          <div>
+            <td>
+            <button  type="submit" class="btn btn-primary btn-sm fa fa-angle-left"></i>Submit</button>
+          </td>
+          <div>
+       </div>
+              
+        </tr>
+      
+      
+            
+        </tbody>
+        
+      </form>
+      
+        
+    
+
+
+</thead>
+</table>
+  </div>
+  </div>
+  </div> 
+    
+</div>
+</div>
+</div>
+</section>
+
+  
+    
+    {% endblock %}

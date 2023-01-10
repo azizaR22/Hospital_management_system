@@ -1,0 +1,70 @@
+{% extends 'main.html' %}
+{% block content %}
+<style>
+    .content-table thead tr{
+       background-color: #131313d6;
+       color: white;
+       text-align: left;
+       font-weight: bold;
+   }
+</style>
+<section class="content">
+   <div class="container-fluid">
+
+   <div class="row">
+       <div class="col-md-12">
+
+       
+   <div class="card">
+   <div class="card-header">
+   <h3 class="card-title">VIEW DOCTOR</h3>
+   </div>
+   <!-- /.card-header -->
+           <div class="card-body">
+           <table id="example1" class="table table-bordered table-striped content-table" >
+
+    
+        <thead>
+            <tr>
+                <th>doctorid</th>
+                <th>doctorn_name</th>
+                <th>doctor_address</th>
+                <th>phone</th>
+                <th>email</th>
+                <th>special</th>
+                <th>delete</th>
+                <th>update</th>
+                
+                
+                
+
+</tr>
+        </thead>
+            <tbody>
+                {% for doc in doctors %}
+                <tr>
+                    <td>{{doc.id}}</td>
+                    <td>{{doc.name}}</td>
+                    <td>{{doc.address}}</td>
+                    <td>{{doc.phone}}</td>
+                    <td>{{doc.email}}</td>
+                    <td>{{doc.special}}</td>
+                    <td><a href="{% url 'delete-doctor' doc.id %}" onclick="return  confirm('are you sure you wanna delete?')" class="btn-danger btn danger">Delete</a></td>
+                    <td><a href="{% url 'update-doctor' doc.id %}"  class="btn-success btn success">Update</a></td>
+               </tr>
+                    {% endfor %}
+                </tbody>
+            
+            
+            </table>
+        
+        
+        </div>
+        
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </section>
+        {% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<!-- <div class="container">
+    <h2 class="text-center">add doctor</h2>
+    <form method="POST">
+        {% csrf_token %} -->
+        <div class="container">
+
+            <div class="row">
+                <!-- Widget Item -->
+                <div class="col-md-12">
+                    <div class="widget-area-2 proclinic-box-shadow">
+                        <h3 class="widget-title">Add group</h3>
+                        <form action="#" method="POST" enctype="multipart/form-data" class="form-horizental form-bordered">
+                            {% csrf_token %}
+
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="group name" name="name">
+                                </div>
+                            
+                                </div>
+                        </form>
+                                
+                        <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                                </div>
+
+
+{% endblock %}

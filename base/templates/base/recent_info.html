@@ -1,0 +1,58 @@
+{% block content %}
+<br><br><br>
+<div class="container">
+  <div class="row">
+    <div class="panel panel-primary col-md-5" style="margin-left:2%;">
+      <div class="panel-heading" style="text-align:center;">
+        <h6 class="panel-title">Recent Doctors</h6>
+      </div>
+      <table class="table table-hover table-striped" id="dev-table">
+        <thead class="thead-dark">
+          <tr>
+            <th>Name</th>
+            <th>special</th>
+            <th>email</th>
+            <th>phone</th>
+
+          </tr>
+        </thead>
+        {% for d in dash_doctors %}
+        <tr>
+          <td> {{d.name}}</td>
+          <td>{{d.special}}</td>
+          <td>{{d.email}}</td>
+          <td>{{d.phone}}</td>
+
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+
+    <div class="panel panel-primary col-md-5" style="margin-left:5%;">
+      <div class="panel-heading" style="text-align:center;">
+        <h6 class="panel-title">Recent Patient</h6>
+      </div>
+      <table class="table table-hover table-striped" id="dev-table">
+        <thead class="thead-dark">
+          <tr>
+            <th>Name</th>
+            <th>patient_type</th>
+            <th>age</th>
+            <th>phone</th>
+
+          </tr>
+        </thead>
+        {% for p in dash_patients %}
+        <tr>
+          <td> {{p.name}}</td>
+          <td>{{p.patient_type}}</td>
+          <td>{{p.age}}</td>
+          <td>{{p.phone}}</td>
+
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

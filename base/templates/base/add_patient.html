@@ -1,0 +1,79 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<style>
+    .content-table {
+        border-collapse: collapse;
+        margin: 10px 0;
+        font-size: 0.5cm;
+        min-width: 300px;
+        border-radius: 5px 5px 0 0;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(86, 42, 198, 0.15);
+        background-color: rgb(233, 233, 247);
+    }
+</style>
+<section class="content">
+   <div class="container-fluid content-table">
+
+   <div class="row">
+       <div class="col-md-12">
+   <div class="card">
+    <div class="card-header">
+        <h3 class="widget-title">Add PATIENT</h3>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-row">
+        <div class="form-group col-md-6">
+
+         <label for="PATIENT-name">Patient Name</label>
+        <input type="text" class="form-control" value="{{patient.name}}" placeholder="PATIENT name" name="name">
+    </div>
+    <div class="form-group col-md-6">
+        <label for="age">Age</label>
+        <input type="text" value="{{patient.age}}" placeholder="Age" class="form-control" name="age">
+    </div>
+    <div class="form-group col-md-6">
+        <label for="phone">Phone</label>
+        <input type="text" placeholder="Phone" value="{{patient.phone}}" class="form-control" name="phone">
+   </div>
+   <div class="form-group col-md-6">
+       <label for="address">ADDRESS</label>
+       <input type="text" value="{{patient.address}}" placeholder="address" class="form-control" name="address">
+    </div>
+   <div class="form-group col-md-6">
+       <label for="address">PATIENT_TYPE</label>
+       <input type="text" value="{{patient.patient_type}}" placeholder="patient_type" class="form-control" name="patient_type">
+   </div>
+   <div class="form-group col-md-6">
+    <label for="gender">Gender</label>
+     <select class="form-control" value="{{patient.gender}}" name="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="others">Other</option>
+    </select>
+</div><div class="form-group col-md-6 mb-3"><button type="submit" class="btn btn-primary btn-lg">Submit</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</section>
+
+</div>
+{% endblock %}
+
+
+    
+
+    
+        
+
+
+                                
+    
+    
+                                
+     
+    
+

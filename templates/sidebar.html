@@ -1,0 +1,195 @@
+{% load static %}
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <!-- Brand Logo -->
+ 
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <!-- Sidebar user panel (optional) -->
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div class="image">
+        <img src="{% static 'img/hs.png' %}" width="200" height="200" alt="User Image">
+      </div>
+      <div class="info">
+        <a href="#" class="d-block">@{{request.user.username}}</a>
+      </div>
+    </div>
+
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <!-- Add icons to the links using the .nav-icon class
+             with font-awesome or any other icon font library -->
+        <!-- <li class="nav-item menu-open">
+          <a href="#" class="nav-link active"> -->
+            <!-- <i class="nav-icon fas fa-tachometer-alt"></i>
+            <p>
+              Dashboard
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="./index.html" class="nav-link active">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Dashboard v1</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="./index2.html" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Dashboard v2</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="./index3.html" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Dashboard v3</p>
+              </a>
+            </li>
+          </ul> -->
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fa fa-user-md"></i>
+              <p>
+                DOCTORS
+                <i class="fas fa-angle-left right"></i>
+                <span class="badge badge-info right">{{doctors.count}}</span>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{% url 'view-doctor' %}" class="nav-link">
+                  <i class="#"></i>
+                  <p>VIEW DOCTORS</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'add-doctor' %}" class="nav-link">
+                  <i class="#"></i>
+                  <p>ADD DOCTORS</p>
+                </a>
+              </li>
+              
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fa fa-user-o"></i>
+              <p>
+                view patients
+                <i class="fas fa-angle-left right"></i>
+                <span class="badge badge-info right">{{patients.count}}</span>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{% url 'view-patient' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>VIEW PATIENTS</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'add-patient' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>ADD PATIENTS</p>
+                </a>
+              </li>
+              
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fa fa-calendar"></i>
+              <p>
+                APPOINTMENTS
+                <i class="fas fa-angle-left right"></i>
+                <span class="badge badge-info right"></span>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{% url 'view-appoinments' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>VIEW APPOINTMENTS</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'add-appointments' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>ADD APPOINTMENTS</p>
+                </a>
+              </li>
+              
+            </ul>
+          </li>
+          {% if request.user.is_superuser%}
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon far fa-plus-square"></i>
+              <p>
+                USERS
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{% url 'view-users' %}"  class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>
+                    registered users
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+              </li>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{% url 'view-users' %}"  class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>
+                     list groups
+                      <i class="fas fa-angle-left right"></i>
+                    </p>
+                  </a>
+                </li>
+                </ul>
+            </ul> 
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon far fa-plus-square"></i>
+                <p>
+                  GROUPS
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{% url 'view-groups' %}"  class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>
+                      view groups
+                      <i class="fas fa-angle-left right"></i>
+                    </p>
+                  </a>
+                </li>
+                </ul>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{% url 'create-group' %}"  class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>
+                        create agroup
+                        <i class="fas fa-angle-left right"></i>
+                      </p>
+                    </a>
+                  </li>
+                  </ul>
+              </ul>
+              {% endif %}
+            </li>
+  </div>
+
+
+  <!-- /.sidebar -->
+</aside>

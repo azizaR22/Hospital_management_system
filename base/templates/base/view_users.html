@@ -1,0 +1,118 @@
+{% extends 'main.html' %}
+{% block content %}
+<style>
+     .content-table thead tr{
+        background-color: hwb(240 2% 35% / 0.839);
+        color: white;
+        text-align: left;
+        font-weight: bold;
+    }
+</style>
+<section class="content">
+    <div class="modal-fade" id="#addusermodel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+       
+      </div>
+    <div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-12">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            add user
+          </button>       
+    <div class="card">
+    <div class="card-header">
+    <h3 class="card-title">Registered users</h3>
+    
+    </div>
+    <!-- /.card-header -->
+            <div class="card-body">
+            <table id="example1" class="table table-bordered table-striped content-table" >
+            <thead>
+                <tr>
+                    <th>username</th>
+                    <th>first_name</th>
+                    <th>last_name</th>
+                    <th>email</th> 
+                    <th>actions</th>
+                </tr>                         
+
+    </thead>
+                
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>{{user.username}}</td>
+                        <td>{{user.first_name}}</td>
+                        <td>{{user.second_name}}</td>
+                        <td>{{user.email}}</td>
+                         <td class="text-center">
+                          <div class="btn-group">
+                            <a href="{% url 'add-user-to-group'  %}" data-toggle="tooltip" title="edit" class="btn btn-xs btn-default"><i class="fa fa-pencil">user-to-group</i></a>
+                            <a href="{% url 'delete-userr' user.id %}" data-toggle="tooltip" title="delete" class="btn btn-xs btn-danger"><i class="fa fa-times">delete</i></a>
+                          </div>
+
+                         </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            
+            
+    </table>
+    <!-- Button trigger modal -->
+
+
+Modal
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">add user</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="{% url 'add-user' %}" method="post">
+          {% csrf_token %}
+         
+        <div class="form-group">
+          {% for field in form %}
+          <div class="form-group">
+            <label>{{field.label}}:</label>
+            <div>{{field}}</div>
+            
+          </div>
+          {% endfor %}
+      
+         
+          <button  type="submit" class="btn btn-primary btn-sm">Submit</button>
+        
+          {{form.errors}}
+          
+      </div>
+      </div>
+    </form>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+
+</div>
+</div>
+
+
+
+</div>
+</div>
+</div>
+
+</section>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+{% endblock %}
