@@ -19,7 +19,7 @@
     </div>
 
     </div>
-    <form method="POST" action="{% url 'create-group' %}">
+    <form method="POST">
       {% csrf_token %}
     <table class="table table-bordered table-striped content-table" >
       <thead>
@@ -40,21 +40,21 @@
                 <td>
                  Doctor
                 </td>
-                <td>  <input type="checkbox" id="vehicle1" name="vehicle1" value="25">
-                  <label for="vehicle1"></label><br></td>
+                <td>  <input type="checkbox" {% if 25 in g_perms %}checked{% endif %} id="permission" name="permission" value="25">
+                  <label for="permission"></label><br></td>
                   
                <td>  
-                <input type="checkbox" id="vehicle1" name="vehicle1" value="26">
-                 <label for="vehicle1"></label><br>
+                <input type="checkbox"{% if 26 in g_perms %}checked{% endif %} id="permission" name="permission" value="26">
+                 <label for="permission"></label><br>
                 </td>
                 <td>
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="27">
-                    <label for="vehicle1"></label><br>
+                    <input type="checkbox" {% if 27 in g_perms %}checked{% endif %} id="permission" name="permission" value="27">
+                    <label for="permission"></label><br>
                 </td>
 
                 <td>
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="28">
-                    <label for="vehicle1"></label><br>
+                    <input type="checkbox" {% if 28 in g_perms %}checked{% endif %} id="permission" name="permission" value="28">
+                    <label for="permission"></label><br>
                 </td>
             </tr>
             <tr>
@@ -62,20 +62,20 @@
                Patient
                 
               </td>
-              <td>  <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                <label for="vehicle1"></label><br></td>
+              <td>  <input type="checkbox" {% if 29 in g_perms %}checked{% endif %} id="permission" name="permission" value="29">
+                <label for="permission"></label><br></td>
                 
              <td>  
-              <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-               <label for="vehicle1"></label><br>
+              <input type="checkbox" {% if 30 in g_perms %}checked{% endif %} id="permission" name="permission" value="30">
+               <label for="permission"></label><br>
               </td>
               <td>
-                  <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                  <label for="vehicle1"></label><br>
+                  <input type="checkbox" {% if 31 in g_perms %}checked{% endif %} id="permission" name="permission" value="31">
+                  <label for="permission"></label><br>
                 </td>
                 <td>
-                  <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                  <label for="vehicle1"></label><br>
+                  <input type="checkbox" {% if 32 in g_perms %}checked{% endif %} id="permission" name="permission" value="32">
+                  <label for="permission"></label><br>
                 </td>
           </tr>
           <tr>
@@ -83,20 +83,20 @@
              Appointment
               
             </td>
-            <td>  <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-              <label for="vehicle1"></label><br></td>
+            <td>  <input type="checkbox" {% if 33 in g_perms %}checked{% endif %} id="permission" name="permission" value="33">
+              <label for="permission"></label><br></td>
               
            <td>  
-            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-             <label for="vehicle1"></label><br>
+            <input type="checkbox" {% if 34 in g_perms %}checked{% endif %} id="permission" name="permission" value="34">
+             <label for="permission"></label><br>
             </td>
             <td>
-                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                <label for="vehicle1"></label><br>
+                <input type="checkbox" {% if 35 in g_perms %}checked{% endif %} id="permission" name="permission" value="35">
+                <label for="permission"></label><br>
               </td>
               <td>
-                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-             </td>   <label for="vehicle1"></label><br>
+                <input type="checkbox" {% if 36 in g_perms %}checked{% endif %} id="permission" name="permission" value="36">
+             </td>   <label for="permission"></label><br>
           </tr>
           <div>
             <td>

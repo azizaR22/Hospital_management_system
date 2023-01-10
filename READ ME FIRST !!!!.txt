@@ -3,10 +3,7 @@
 
 Login Details for admin : cutie
               Password :1234
-Login Details for Patient: patient 
-                Password :casiiso.244000
-Login Details for Doctor: doctor
-                Password : casiiso.244000
+
 
 
 ***** IF YOU FIND ANY ERRORS OR ANY PROBLEMS RELATED THIS PROGRAM, FEEL FREE TO CONTACT  *****  

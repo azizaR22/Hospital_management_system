@@ -15,97 +15,63 @@
               
     <div class="card">
     <div class="card-header">
-    <h3 class="card-title">create-group</h3>
+    <h3 class="card-title">ADD USER TO GROUP</h3>
     </div>
 
     </div>
-    <form method="POST" action="{% url 'create-group' %}">
+    <form  action="{% url 'add-user-to-group'%}" method="POST">
       {% csrf_token %}
-    <table class="table table-bordered table-striped content-table" >
       <thead>
         <div class="form-group col-md-6">
-          <label for="name">Name</label>
-          <input type="text" class="form-control" id="name" placeholder="group name" name="name">
-      </div>
-          <tr>
-              <th>modal</th>
-              <th>add</th>
-              <th>view</th>
-              <th>update</th>
-              <th>delete</th>
-                
-          </tr> 
-          
-            <div class="form-row">
-              <div class="form-group col-md-12">
-          <tbody>
-        
-            <tr>
-                <td>
-                 Doctor
-                </td>
-                <td>  <input type="checkbox" id="permission" name="permission" value="25">
-                  <label for="permission"></label><br></td>
-                  
-               <td>  
-                <input type="checkbox" id="permission" name="permission" value="26">
-                 <label for="permission"></label><br>
-                </td>
-                <td>
-                    <input type="checkbox" id="permission" name="permission" value="27">
-                    <label for="permission"></label><br>
-                </td>
+          <select name="group" class="form-control">
+            {% for group in groups %}
+              <option value="{{group.id}}">{{group.name}}</option>
+            {% endfor %}
 
-                <td>
-                    <input type="checkbox" id="permission" name="permission" value="28">
-                    <label for="permission"></label><br>
-                </td>
-            </tr>
-            <tr>
-              <td>
-               Patient
-                
-              </td>
-              <td>  <input type="checkbox" id="permission" name="permission" value="29">
-                <label for="permission"></label><br></td>
-                
-             <td>  
-              <input type="checkbox" id="permission" name="permission" value="30">
-               <label for="permission"></label><br>
-              </td>
-              <td>
-                  <input type="checkbox" id="permission" name="permission" value="31">
-                  <label for="permission"></label><br>
-                </td>
-                <td>
-                  <input type="checkbox" id="permission" name="permission" value="32">
-                  <label for="permission"></label><br>
-                </td>
-          </tr>
+          </select>
+      </div>
+      <button  type="submit" class="btn btn-primary btn-sm fa fa-angle-left"></i>Submit</button>
+      </thead>
+    </form>           
+    <div class="card-body">
+      <table id="example1" class="table table-bordered table-striped content-table" >
+      <thead>
           <tr>
-            <td>
-             Appointment
+              <th>name</th>
+              <th>actions</th>
               
-            </td>
-            <td>  <input type="checkbox" id="permission" name="permission" value="33">
-              <label for="permission"></label><br></td>
-              
-           <td>  
-            <input type="checkbox" id="permission" name="permission" value="34">
-             <label for="permission"></label><br>
-            </td>
-            <td>
-                <input type="checkbox" id="permission" name="permission" value="35">
-                <label for="permission"></label><br>
-              </td>
-              <td>
-                <input type="checkbox" id="permission" name="permission" value="36">
-             </td>   <label for="permission"></label><br>
-          </tr>
-          <div>
-            <td>
-            <button  type="submit" class="btn btn-primary btn-sm fa fa-angle-left"></i>Submit</button>
-          </td>
+          </tr>                         
+
+</thead>
+          
+          <tbody>
+              {% for cc in ugroup %}
+              <tr>
+                  <td>{{c.name}}</td>
+                 
+
+                   <td class="text-center">
+                    <div class="btn-group">
+                    <a href="#" data-toggle="tooltip" title="delete" class="btn btn-xs btn-danger"><i class="fa fa-times">delete</i></a>
+                    </div>
+
+                   </td>
+              </tr>
+              <!-- {% endfor %} -->
+          </tbody>
+      
+      
+</table>
+
+
+
+
+
+
+</div>
+    
+          
+
           <div>
        </div>
               
@@ -115,7 +81,7 @@
             
         </tbody>
         
-      </form>
+      
       
         
     

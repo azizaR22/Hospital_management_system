@@ -39,7 +39,7 @@
                         <td>{{group.name}}</td>
                         <td class="text-center">
                             <div class="btn-group">
-                              <a href="#" data-toggle="tooltip" title="edit" class="btn btn-xs btn-default"><i class="fa fa-pencil" aria-hidden="true">user-to-group</i></a>
+                              <a href="{% url 'edit-user-to-group' group.id%}" data-toggle="tooltip" title="edit" class="btn btn-xs btn-default"><i class="fa fa-pencil" aria-hidden="true">Edit</i></a>
                               <a href="{% url 'delete-group' group.id %}" onclick="return  confirm('are you sure you wanna delete?')"  data-toggle="tooltip" title="delete" class="btn btn-xs btn-danger"><i class="fa fa-times">delete</i></a>
                             </div>
                     </tr>

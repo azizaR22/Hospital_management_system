@@ -33,8 +33,12 @@ urlpatterns = [
     path("delete-userr/<str:pk>/", views.delete_user, name="delete-userr"),
     path("delete-group/<str:pk>/", views.delete_group, name="delete-group"),
     path("add-group/", views.add_group, name="add-group"),
-    path("edit-user/<str:pk>", views.edituser, name="edit-user"),
+    path("edit-user/<str:pk>/", views.edituser, name="edit-user"),
     path("create-group/", views.creategroup, name="create-group"),
-    path("add-user-to-group/", views.add_user_group, name="add-user-to-group"),
-    path("edit-user-to-group/", views.edit_user_to_group, name="edit-user-to-group"),
+    path("add-user-to-group/<str:pk>/", views.add_user_group, name="add-user-to-group"),
+    path(
+        "edit-user-to-group/<str:pk>/",
+        views.edit_user_to_group,
+        name="edit-user-to-group",
+    ),
 ]

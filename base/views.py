@@ -369,10 +369,17 @@ def creategroup(request):
     return render(request, "base/create_group.html", context)
 
 
-def add_user_group(request):
+def add_user_group(request, pk):
     groups = Group.objects.all()
+    user = User.objects.all()
+    if request.method == "POST":
+        gname = request.POST.get("gname")
 
-    context = {"groups": groups}
+        group = Group.objects.get(name=gname)
+        user = User.objects.get(id=pk)
+        user.groups.add(group)
+
+    context = {"groups": groups, "user": user}
 
     return render(request, "base/add_user_group.html", context)
 
@@ -388,13 +395,11 @@ def edit_user_to_group(request, pk):
         name = request.POST.get("name")
         checkbox1 = request.POST.getlist("permission")
         print(checkbox1)
-        if name != "":
-            if len(Group.objects.filter(name=name)) == 0:
-                group = Group(name=name)
-                group.save()
-                for item in checkbox1:
-                    group.permissions.add(item)
-                    messages.success(request, "permission was succesfully updated")
+        # group = Group(name=name)
+        # group.save()
+        for item in checkbox1:
+            group.permissions.add(item)
+            messages.success(request, "permission was succesfully updated")
 
         return redirect("view-groups")
     context = {"g_perms": g_perms, "group": group}
