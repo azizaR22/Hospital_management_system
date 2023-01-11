@@ -21,8 +21,13 @@
     </div>
     <form method="POST">
       {% csrf_token %}
+      <div class="form-group col-md-6">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" placeholder="group name" name="name" value="{{group}}">
+    </div>
     <table class="table table-bordered table-striped content-table" >
       <thead>
+
           <tr>
               <th>modal</th>
               <th>add</th>

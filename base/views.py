@@ -372,7 +372,7 @@ def creategroup(request):
 def add_user_group(request, pk):
     user = User.objects.get(id=pk)
     groups = Group.objects.all()
-    ugroup = ""
+    u_groups = ""
 
     if request.method == "POST":
         gname = request.POST.get("group")
@@ -385,29 +385,35 @@ def add_user_group(request, pk):
     for i in user.groups.all():
         u_groups.append(i)
 
-    context = {"groups": groups, "ugroup": u_groups}
+    context = {"groups": groups, "u_groups": u_groups}
 
     return render(request, "base/add_user_group.html", context)
 
 
 def edit_user_to_group(request, pk):
     group = Group.objects.filter(id=pk)
+    group_name = Group.objects.get(id=pk)
     g_perms = []
-    perms = Permission.objects.filter(group__id__in=group)
-    for gp in perms:
-        g_perms.append(gp.id)
+    perm_update = []
+    permissions = Permission.objects.filter(group__id__in=group)
+    for gp in permissions:
+        perm_update.append(gp.id)
     if request.method == "POST":
 
-        name = request.POST.get("name")
+        name = request.POST["name"]
         checkbox1 = request.POST.getlist("permission")
         print(checkbox1)
-        # group = Group(name=name)
-        # group.save()
-        for item in checkbox1:
-            group.permissions.add(item)
-            messages.success(request, "permission was succesfully updated")
 
+        group_per = Group(id=pk, name=name)
+        group_per.save()
+        group_per.permissions.clear()
+        for item in checkbox1:
+            perm = Permission.objects.get(pk=item)
+            group_per.permissions.add(perm)
+        permessions = Permission.objects.filter(group__id__in=group)
+        for p in permissions:
+            perm_update.append(p.id)
         return redirect("view-groups")
-    context = {"g_perms": g_perms, "group": group}
+    context = {"g_perms": perm_update, "group": group_name}
 
     return render(request, "base/edit_create_to_group.html", context)
