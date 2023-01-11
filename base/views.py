@@ -370,16 +370,22 @@ def creategroup(request):
 
 
 def add_user_group(request, pk):
+    user = User.objects.get(id=pk)
     groups = Group.objects.all()
-    user = User.objects.all()
-    if request.method == "POST":
-        gname = request.POST.get("gname")
+    ugroup = ""
 
-        group = Group.objects.get(name=gname)
-        user = User.objects.get(id=pk)
+    if request.method == "POST":
+        gname = request.POST.get("group")
+
+        group = Group.objects.get(id=gname)
+
         user.groups.add(group)
 
-    context = {"groups": groups, "user": user}
+    u_groups = []
+    for i in user.groups.all():
+        u_groups.append(i)
+
+    context = {"groups": groups, "ugroup": u_groups}
 
     return render(request, "base/add_user_group.html", context)
 

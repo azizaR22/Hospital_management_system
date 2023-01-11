@@ -19,7 +19,7 @@
     </div>
 
     </div>
-    <form  action="{% url 'add-user-to-group'%}" method="POST">
+    <form  action="#" method="POST">
       {% csrf_token %}
       <thead>
         <div class="form-group col-md-6">
@@ -33,35 +33,43 @@
       <button  type="submit" class="btn btn-primary btn-sm fa fa-angle-left"></i>Submit</button>
       </thead>
     </form>           
-    <div class="card-body">
-      <table id="example1" class="table table-bordered table-striped content-table" >
-      <thead>
-          <tr>
-              <th>name</th>
-              <th>actions</th>
-              
-          </tr>                         
+    <div class="card">
+      <div class="card-header">
+      <h3 class="card-title">view_groups</h3>
+      </div>
+      <!-- /.card-header -->
+              <div class="card-body">
+              <table id="#" class="table table-bordered table-striped content-table" >
+   
+       
+           <thead>
+               <tr>
+                   <th>name</th>
+                   <th>actions</th>
 
-</thead>
-          
-          <tbody>
-              {% for cc in ugroup %}
-              <tr>
-                  <td>{{c.name}}</td>
-                 
-
-                   <td class="text-center">
-                    <div class="btn-group">
-                    <a href="#" data-toggle="tooltip" title="delete" class="btn btn-xs btn-danger"><i class="fa fa-times">delete</i></a>
-                    </div>
-
-                   </td>
-              </tr>
-              <!-- {% endfor %} -->
-          </tbody>
-      
-      
-</table>
+                   
+                   
+                   
+                   
+   
+   </tr>
+           </thead>
+               <tbody>
+                   {% for cc in u_groups %}
+                   <tr>
+                       <td>{{cc.name}}</td>
+                       <td><a href="#" onclick="return  confirm('are you sure you wanna delete?')" class="btn-danger btn danger">Delete</a></td>
+                  </tr>
+                       {% endfor %}
+                   </tbody>
+               
+               
+               </table>
+           
+           
+           </div>
+           
+           </div>
 
 
 
