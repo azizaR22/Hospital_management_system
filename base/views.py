@@ -63,7 +63,7 @@ def logoutuser(request):
     return redirect("login")
 
 
-# -----------for checking user is doctor , patient or admin(by sumit)
+# -----------for checking user is doctor , patient or admin
 def is_admin(user):
     return user.groups.filter(name="admin").exists()
 
@@ -253,6 +253,8 @@ def updateappointments(request, pk):
             form.save()
             messages.success(request, f"appointment was succesfully updated")
             return redirect("view-appoinments")
+        else:
+            messages.error(request, "cannot be updated")
 
     form = Appoinmentform(instance=appointment)
     context = {
@@ -372,7 +374,7 @@ def creategroup(request):
 def add_user_group(request, pk):
     user = User.objects.get(id=pk)
     groups = Group.objects.all()
-    u_groups = ""
+    u_groups = []
 
     if request.method == "POST":
         gname = request.POST.get("group")
